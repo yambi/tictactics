@@ -123,17 +123,17 @@ function check(i,j){
 function metacheck(){
     var xwin = false;
     var owin = false;
-    //ななめ
+    //diagonal
   　if(metaboard[0][0]&1 && metaboard[1][1]&1 && metaboard[2][2]&1)xwin=true;
   　if(metaboard[0][0]&2 && metaboard[1][1]&2 && metaboard[2][2]&2)owin=true;
   　if(metaboard[0][2]&1 && metaboard[1][1]&1 && metaboard[2][0]&1)xwin=true;
   　if(metaboard[0][2]&2 && metaboard[1][1]&2 && metaboard[2][0]&2)owin=true;
 
     for(var k=0;k<size;k++){
-      //たて
+      //vertical
     　if(metaboard[k][0]&1 && metaboard[k][1]&1 && metaboard[k][2]&1)xwin=true;
     　if(metaboard[k][0]&2 && metaboard[k][1]&2 && metaboard[k][2]&2)owin=true;
-      //よこ
+      //horizontal
     　if(metaboard[0][k]&1 && metaboard[1][k]&1 && metaboard[2][k]&1)xwin=true;
     　if(metaboard[0][k]&2 && metaboard[1][k]&2 && metaboard[2][k]&2)owin=true;
     }
@@ -146,6 +146,7 @@ function metacheck(){
     if(draw || (xwin && owin))document.getElementById("info").innerHTML="draw!";
     else if(xwin)document.getElementById("info").innerHTML="&times; win!";
     else if(owin)document.getElementById("info").innerHTML="&#x25CB; win!";
+    else document.getElementById("info").innerHTML="";
     console.log(draw+":"+xwin+":"+owin);
 }
 
@@ -188,6 +189,7 @@ function undo(){
         prevj=tmp[1];
     }
     showBoard();
+    metacheck();
     editable=true;
 }
 
@@ -205,6 +207,7 @@ function redo(){
         prevj=tmp[1];
     }
     showBoard();
+    metacheck();
     editable=true;
 }
 
