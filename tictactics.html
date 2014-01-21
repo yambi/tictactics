@@ -91,22 +91,22 @@ function check(i,j){
     if(metaboard[_i][_j]>0)return;
 
     //diagonal
-  　if(board[_i*size][_j*size]>0 && board[_i*size][_j*size]==board[_i*size+1][_j*size+1] && board[_i*size][_j*size]==board[_i*size+2][_j*size+2]){
+    if(board[_i*size][_j*size]>0 && board[_i*size][_j*size]==board[_i*size+1][_j*size+1] && board[_i*size][_j*size]==board[_i*size+2][_j*size+2]){
       metaboard[_i][_j]=board[_i*size][_j*size];
       return;
     }
-　　if(board[_i*size+2][_j*size]>0 && board[_i*size+2][_j*size]==board[_i*size+1][_j*size+1] && board[_i*size+2][_j*size]==board[_i*size][_j*size+2]){
+    if(board[_i*size+2][_j*size]>0 && board[_i*size+2][_j*size]==board[_i*size+1][_j*size+1] && board[_i*size+2][_j*size]==board[_i*size][_j*size+2]){
       metaboard[_i][_j]=board[_i*size+2][_j*size];
       return;
     }
     for(var k=0;k<size;k++){
       //vertical
-    　if(board[_i*size][_j*size+k]>0 && board[_i*size][_j*size+k]==board[_i*size+1][_j*size+k] && board[_i*size][_j*size+k]==board[_i*size+2][_j*size+k]){
+     if(board[_i*size][_j*size+k]>0 && board[_i*size][_j*size+k]==board[_i*size+1][_j*size+k] && board[_i*size][_j*size+k]==board[_i*size+2][_j*size+k]){
         metaboard[_i][_j]=board[_i*size][_j*size+k];
         return;
       }
       //horizonal
-    　if(board[_i*size+k][_j*size]>0 && board[_i*size+k][_j*size]==board[_i*size+k][_j*size+1] && board[_i*size+k][_j*size]==board[_i*size+k][_j*size+2]){
+     if(board[_i*size+k][_j*size]>0 && board[_i*size+k][_j*size]==board[_i*size+k][_j*size+1] && board[_i*size+k][_j*size]==board[_i*size+k][_j*size+2]){
         metaboard[_i][_j]=board[_i*size+k][_j*size];
         return;
       }
@@ -124,18 +124,18 @@ function metacheck(){
     var xwin = false;
     var owin = false;
     //diagonal
-  　if(metaboard[0][0]&1 && metaboard[1][1]&1 && metaboard[2][2]&1)xwin=true;
-  　if(metaboard[0][0]&2 && metaboard[1][1]&2 && metaboard[2][2]&2)owin=true;
-  　if(metaboard[0][2]&1 && metaboard[1][1]&1 && metaboard[2][0]&1)xwin=true;
-  　if(metaboard[0][2]&2 && metaboard[1][1]&2 && metaboard[2][0]&2)owin=true;
+    if(metaboard[0][0]&1 && metaboard[1][1]&1 && metaboard[2][2]&1)xwin=true;
+    if(metaboard[0][0]&2 && metaboard[1][1]&2 && metaboard[2][2]&2)owin=true;
+    if(metaboard[0][2]&1 && metaboard[1][1]&1 && metaboard[2][0]&1)xwin=true;
+    if(metaboard[0][2]&2 && metaboard[1][1]&2 && metaboard[2][0]&2)owin=true;
 
     for(var k=0;k<size;k++){
       //vertical
-    　if(metaboard[k][0]&1 && metaboard[k][1]&1 && metaboard[k][2]&1)xwin=true;
-    　if(metaboard[k][0]&2 && metaboard[k][1]&2 && metaboard[k][2]&2)owin=true;
+      if(metaboard[k][0]&1 && metaboard[k][1]&1 && metaboard[k][2]&1)xwin=true;
+      if(metaboard[k][0]&2 && metaboard[k][1]&2 && metaboard[k][2]&2)owin=true;
       //horizontal
-    　if(metaboard[0][k]&1 && metaboard[1][k]&1 && metaboard[2][k]&1)xwin=true;
-    　if(metaboard[0][k]&2 && metaboard[1][k]&2 && metaboard[2][k]&2)owin=true;
+      if(metaboard[0][k]&1 && metaboard[1][k]&1 && metaboard[2][k]&1)xwin=true;
+      if(metaboard[0][k]&2 && metaboard[1][k]&2 && metaboard[2][k]&2)owin=true;
     }
     var draw = true;
     for(var k=0;k<size;k++){
