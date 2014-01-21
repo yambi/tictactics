@@ -90,7 +90,7 @@ function check(i,j){
     var _j = Math.floor(j/3);
     if(metaboard[_i][_j]>0)return;
 
-    //ななめ
+    //diagonal
   　if(board[_i*size][_j*size]>0 && board[_i*size][_j*size]==board[_i*size+1][_j*size+1] && board[_i*size][_j*size]==board[_i*size+2][_j*size+2]){
       metaboard[_i][_j]=board[_i*size][_j*size];
       return;
@@ -100,12 +100,12 @@ function check(i,j){
       return;
     }
     for(var k=0;k<size;k++){
-      //たて
+      //vertical
     　if(board[_i*size][_j*size+k]>0 && board[_i*size][_j*size+k]==board[_i*size+1][_j*size+k] && board[_i*size][_j*size+k]==board[_i*size+2][_j*size+k]){
         metaboard[_i][_j]=board[_i*size][_j*size+k];
         return;
       }
-      //よこ
+      //horizonal
     　if(board[_i*size+k][_j*size]>0 && board[_i*size+k][_j*size]==board[_i*size+k][_j*size+1] && board[_i*size+k][_j*size]==board[_i*size+k][_j*size+2]){
         metaboard[_i][_j]=board[_i*size+k][_j*size];
         return;
@@ -144,7 +144,7 @@ function metacheck(){
       }
     }
     if(draw || (xwin && owin))document.getElementById("info").innerHTML="draw!";
-    else if(xwin)document.getElementById("info").innerHTML="#times; win!";
+    else if(xwin)document.getElementById("info").innerHTML="&times; win!";
     else if(owin)document.getElementById("info").innerHTML="&#x25CB; win!";
     console.log(draw+":"+xwin+":"+owin);
 }
