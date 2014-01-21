@@ -187,6 +187,7 @@ function undo(){
         var tmp=undo_place.pop();
         previ=tmp[0];
         prevj=tmp[1];
+        next=1-next;
     }
     showBoard();
     metacheck();
@@ -205,6 +206,7 @@ function redo(){
         var tmp=redo_place.pop();
         previ=tmp[0];
         prevj=tmp[1];
+        next=1-next;
     }
     showBoard();
     metacheck();
