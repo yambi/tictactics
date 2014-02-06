@@ -1,0 +1,38 @@
+body{
+    background-color:#eee;
+}
+
+
+span.cell{
+    font-size: 20px;
+    display: table-cell;
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+div.cell{
+    position:absolute;
+    display: inline-block;
+    width:32px;
+    height:32px;
+    border:1px solid black;
+}
+
+div.white{
+    background-color:#fff;
+}
+
+div.yellow{
+    background-color:#ff4;
+}
+
+div.green{
+    background-color:#4f4;
+}
+
+div.red{
+    background-color:#f44;
+}
